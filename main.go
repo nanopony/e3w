@@ -34,9 +34,7 @@ func init() {
 }
 
 func main() {
-	fmt.Printf("Hewwo")
 	config, err := conf.Init(configFilepath)
-	fmt.Printf("Launching a router on a port %s", config.Port)
 	if err != nil {
 		panic(err)
 	}

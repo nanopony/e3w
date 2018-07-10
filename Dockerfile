@@ -17,7 +17,7 @@ FROM alpine:latest
 RUN mkdir -p /app/static/dist /app/conf
 COPY --from=backend /go/src/github.com/nanopony/web_etcd/web_etcd /app
 COPY --from=frontend /app/dist /app/static/dist
-COPY conf/config.docker.ini /app/conf
+COPY conf/config.docker.ini /app/conf/config.default.ini
 EXPOSE 8080
 WORKDIR /app
 CMD ["./web_etcd"]
