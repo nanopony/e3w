@@ -4,6 +4,7 @@ import (
 	"gopkg.in/ini.v1"
 )
 
+// Config thingie
 type Config struct {
 	Port          string
 	Auth          bool
@@ -17,6 +18,7 @@ type Config struct {
 	CAFile        string
 }
 
+// Init thingie
 func Init(filepath string) (*Config, error) {
 	cfg, err := ini.Load(filepath)
 	if err != nil {
@@ -30,7 +32,7 @@ func Init(filepath string) (*Config, error) {
 	c.Auth = appSec.Key("auth").MustBool()
 
 	etcdSec := cfg.Section("etcd")
-	c.EtcdRootKey = etcdSec.Key("root_key").Value()
+	c.EtcdRootKey = "/"
 	c.DirValue = etcdSec.Key("dir_value").Value()
 	c.EtcdEndPoints = etcdSec.Key("addr").Strings(",")
 	c.EtcdUsername = etcdSec.Key("username").Value()

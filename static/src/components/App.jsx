@@ -39,14 +39,14 @@ const App = React.createClass({
         return (
             <Box centerJustified>
                 <Box vertical style={{ width: 1000 }}>
-                    <Box style={{ padding: 20, borderBottom: "1px #E6E6E6 solid" }}>
+                    <Box style={{ padding: "20px 0", borderBottom: "1px #E6E6E6 solid" }}>
                         <Box center ceterJustified onClick={() => { window.location.hash = "#/" } }
                             style={{
                                 fontSize: 25, fontWeight: 700, marginRight: 20, paddingRight: 20,
                                 borderStyle: "solid", borderWidth: "0px 2px 0px 0px", borderColor: "#ddd",
                                 cursor: "pointer"
                             }}>
-                            E·3·W
+                            ETCd3 Web
                         </Box>
                         <Menu onClick={this.handleClick}
                             selectedKeys={[this.state.menu]}

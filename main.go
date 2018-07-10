@@ -3,16 +3,17 @@ package main
 import (
 	"flag"
 	"fmt"
+	"os"
+
 	"github.com/coreos/etcd/version"
 	"github.com/gin-gonic/gin"
-	"github.com/soyking/e3w/conf"
-	"github.com/soyking/e3w/e3ch"
-	"github.com/soyking/e3w/routers"
-	"os"
+	"github.com/nanopony/web_etcd/conf"
+	"github.com/nanopony/web_etcd/e3ch"
+	"github.com/nanopony/web_etcd/routers"
 )
 
 const (
-	PROGRAM_NAME    = "e3w"
+	PROGRAM_NAME    = "web_etcd"
 	PROGRAM_VERSION = "0.0.2"
 )
 
@@ -33,7 +34,9 @@ func init() {
 }
 
 func main() {
+	fmt.Printf("Hewwo")
 	config, err := conf.Init(configFilepath)
+	fmt.Printf("Launching a router on a port %s", config.Port)
 	if err != nil {
 		panic(err)
 	}
@@ -46,5 +49,7 @@ func main() {
 	router := gin.Default()
 	router.UseRawPath = true
 	routers.InitRouters(router, config, client)
+
 	router.Run(":" + config.Port)
+
 }

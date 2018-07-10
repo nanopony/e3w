@@ -9,10 +9,6 @@
 _obj
 _test
 
-.vscode
-
-debug
-
 # Architecture specific extensions/prefixes
 *.[568vq]
 [568vq].out
@@ -29,5 +25,3 @@ _testmain.go
 *.test
 *.prof
 
-web_etcd
-vendor

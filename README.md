@@ -1,6 +1,12 @@
 e3w
 ===
 
+## What the difference???
+
+This is a hack of e3w in order to make the e3w work with root_dir set to /. Use at your own risk.
+
+-----
+
 etcd v3 Web UI based on [Golang](https://golang.org/) && [React](https://facebook.github.io/react/), copy from [consul ui](https://github.com/hashicorp/consul/tree/master/ui) :)
 
 supporting hierarchy on etcd v3, based on [e3ch](https://github.com/soyking/e3ch)
@@ -8,13 +14,13 @@ supporting hierarchy on etcd v3, based on [e3ch](https://github.com/soyking/e3ch
 ## Quick Start
 
 ```
-git clone https://github.com/soyking/e3w.git
+git clone https://github.com/nanopony/web_e3w.git
 cd e3w
 docker-compose up
 # open http://localhost:8080
 ```
 
-Or use docker image by `docker pull soyking/e3w`, more details in `Dockerfile` and `docker-compose.yml`
+Or use docker image by `docker pull nanopony/web_etcd`, more details in `Dockerfile` and `docker-compose.yml`
 
 ## Overview
 
@@ -40,7 +46,7 @@ SETTING
 
 ## Usage
 
-1.Fetch the project `go get github.com/soyking/e3w`
+1.Fetch the project `go get github.com/nanopony/web_e3w`
 
 
 2.frontend
@@ -86,4 +92,4 @@ Install dependencies in 3.b, then run `docker build -t soyking/e3w .`
 
 	When `userA` was granted `roleA`, `userA` could open the by `http://e3w-address.com/#/kv/dir1/dir2` to view and edit the key/value
 
-- Access key/value by etcdctl, [issue](https://github.com/soyking/e3w/issues/3). But the best way to access key/value is using [e3ch](https://github.com/soyking/e3ch).
+- Access key/value by etcdctl, [issue](https://github.com/nanopony/web_e3w/issues/3). But the best way to access key/value is using [e3ch](https://github.com/soyking/e3ch).

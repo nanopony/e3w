@@ -3,9 +3,9 @@ package routers
 import (
 	"github.com/coreos/etcd/clientv3"
 	"github.com/gin-gonic/gin"
-	"github.com/soyking/e3ch"
-	"github.com/soyking/e3w/conf"
-	"github.com/soyking/e3w/e3ch"
+	"github.com/nanopony/web_etcd/conf"
+	"github.com/nanopony/web_etcd/e3ch"
+	"github.com/nanopony/web_etcd/e3ch/e3ch_connect"
 )
 
 const (
