@@ -2,7 +2,6 @@ package client
 
 import (
 	"errors"
-	"fmt"
 	"strings"
 
 	"github.com/coreos/etcd/clientv3"
@@ -93,7 +92,6 @@ func (clt *EtcdHRCHYClient) trimRootKey(key string) string {
 
 func (clt *EtcdHRCHYClient) createNode(kv *mvccpb.KeyValue) *Node {
 	// remove rootKey prefix
-	fmt.Println("%s | %s", string(kv.Key), clt.rootKey)
 	kv.Key = []byte(clt.trimRootKey(string(kv.Key)))
 	return &Node{
 		KeyValue: kv,

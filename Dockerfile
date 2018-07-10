@@ -1,7 +1,7 @@
 FROM golang:1.8 as backend
-RUN mkdir -p /go/src/github.com/nanopony/web_e3w
-ADD . /go/src/github.com/nanopony/web_e3w
-WORKDIR /go/src/github.com/nanopony/web_e3w
+RUN mkdir -p /go/src/github.com/nanopony/web_etcd
+ADD . /go/src/github.com/nanopony/web_etcd
+WORKDIR /go/src/github.com/nanopony/web_etcd
 RUN CGO_ENABLED=0 go build
 
 FROM node:8 as frontend
@@ -15,9 +15,9 @@ RUN npm --registry=https://registry.npm.taobao.org \
 
 FROM alpine:latest
 RUN mkdir -p /app/static/dist /app/conf
-COPY --from=backend /go/src/github.com/nanopony/web_e3w/e3w /app
+COPY --from=backend /go/src/github.com/nanopony/web_etcd/web_etcd /app
 COPY --from=frontend /app/dist /app/static/dist
-COPY conf/config.default.ini /app/conf
+COPY conf/config.docker.ini /app/conf
 EXPOSE 8080
 WORKDIR /app
-CMD ["./e3w"]
+CMD ["./web_etcd"]
